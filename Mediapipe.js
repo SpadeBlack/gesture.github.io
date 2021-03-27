@@ -2,9 +2,13 @@
 const videoElement = document.getElementsByClassName('input_video')[0];
 const canvasElement = document.getElementsByClassName('output_canvas')[0];
 const canvasCtx = canvasElement.getContext('2d');
+ canvasCtx.canvas.width  = window.innerWidth;
+ canvasCtx.canvas.height = window.innerHeight;
 videoElement.style.display = "none"
  var w = canvasElement.width
  var h = canvasElement.height
+ 
+
 var counter = 0
 var xt = " ";
 async function onResults(results) {
