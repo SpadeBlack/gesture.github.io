@@ -64,7 +64,7 @@ async function onResults(results) {
         }
         canvasCtx.font = "60px Arial";
         canvasCtx.fillText(xt.toString(), 100, 100);
-//         if(counter%15==0){
+//         if(counter%12==0){
             xt = await predict(input, box_main, canvasCtx)
 //         }
 
