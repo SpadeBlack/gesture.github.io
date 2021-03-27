@@ -13,7 +13,7 @@ async function onResults(results) {
   canvasCtx.drawImage(
       results.image, 0, 0, w, h);
   if (results.multiHandLandmarks) {
-    counter += 1
+//     counter += 1
     for (const landmarks of results.multiHandLandmarks) {
         // console.log("Main>>"+JSON.stringify(landmarks))
         //for x coordinates,...
@@ -64,9 +64,9 @@ async function onResults(results) {
         }
         canvasCtx.font = "60px Arial";
         canvasCtx.fillText(xt.toString(), 100, 100);
-        if(counter%15==0){
+//         if(counter%15==0){
             xt = await predict(input, box_main, canvasCtx)
-        }
+//         }
 
           // console.log("KABADDI "+j)
           // canvasCtx.font = "60px Arial";
@@ -99,7 +99,10 @@ hands.onResults(onResults);
 
 const camera = new Camera(videoElement, {
   onFrame: async () => {
+   if(counter %15 == 0  ){
     await hands.send({image: videoElement});
+   }
+   counter +=1;
   },
   width: w,
   height: h
